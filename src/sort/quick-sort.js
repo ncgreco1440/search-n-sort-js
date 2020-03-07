@@ -1,19 +1,19 @@
-function QuickSort(data) {
-  _QuickSort(data, 0, data.length - 1);
+function _swap(data, min, index) {
+  const temp = data[min];
+  data[min] = data[index];
+  data[index] = temp; 
 }
 
-function _QuickSort(data, left, right) {
-  if (left >= right) return;
+function partition(data, min, max) {
+  let mid = Math.floor(min + (max - min) / 2);
+  let pivot = data[mid];
+  _swap(data, mid, min);
 
-  let pivot = data[Math.floor(left + (right - left) / 2)];
-  let index = partition(data, left, right, pivot);
-  _QuickSort(data, left, index - 1);
-  _QuickSort(data, left, right);
-}
+  let left = min;
+  let right = max;
 
-function partition(data, left, right, pivot) {
-  while (left <= right) {
-    while (data[left].compareTo(pivot) < 0) {
+  while (left < right) {
+    while (left < right && data[left].compareTo(pivot) <= 0) {
       left++;
     }
 
@@ -23,18 +23,25 @@ function partition(data, left, right, pivot) {
 
     if (left < right) {
       _swap(data, left, right);
-      left++;
-      right--;
     }
   }
 
-  return left;
+  _swap(data, min, right);
+  return right;
 }
 
-function _swap(data, min, index) {
-  const temp = data[min];
-  data[min] = data[index];
-  data[index] = temp; 
+function _QuickSort(data, min, max) {
+  if (min >= max) {
+    return;
+  }
+
+  let index = partition(data, min, max);
+  _QuickSort(data, min, index - 1);
+  _QuickSort(data, index + 1, max);
+}
+
+function QuickSort(data) {
+  _QuickSort(data, 0, data.length - 1);
 }
 
 module.exports = QuickSort;

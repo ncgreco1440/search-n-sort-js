@@ -1,5 +1,5 @@
 const Contact = require('./contact');
-const QuickSort = require('./bubble-sort');
+const QuickSort = require('./quick-sort');
 
 describe('QuickSort', () => {
 
