@@ -45,6 +45,15 @@ const Contact = (function() {
       } else if (lhsLastName < rhsLastName) {
         return -1;
       } else {
+        // fallback to first name
+        const lhsFirstName = this.firstName.toLowerCase();
+        const rhsFirstName = con.firstName.toLowerCase();
+        if (lhsFirstName > rhsFirstName) {
+          return 1;
+        } else if (lhsFirstName < rhsFirstName) {
+          return -1;
+        }
+        // Both names are equal
         return 0;
       }
     }
