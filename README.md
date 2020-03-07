@@ -1,2 +1,1 @@
-# search-n-sort-js
-Search and Sort Algorithms in JavaScript
+# Search and Sort Algorithms written in JavaScript

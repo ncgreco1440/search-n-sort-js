@@ -52,8 +52,14 @@ function recursiveBinarySearch(array, target, left, right) {
  * Test application
  */
 let a = [];
-for (let i = 0; i < 1000000; i++) {
-  a.push(i);
+// for (let i = 0; i < 2000000; i++) {
+//   a.push(Math.floor(Math.random() * 1000000 - (-1000000) + -1000000));
+// }
+
+for (let i = 0; i <= 200; i++) {
+  if (i != 101) {
+    a.push(i);
+  }
 }
 
 console.log('Searching array for a number between 0 and 2 billion');
@@ -66,5 +72,23 @@ if (process.argv[2] < 0) {
   console.error('Number input was too small');
 }
 
-console.log(`${process.argv[2]} was in position: ${recursiveBinarySearch(a, Number(process.argv[2]), 0, a.length - 1)}\n
-and took ${iterations.num} iterations to complete the search`);
+// console.log(`${process.argv[2]} was in position: ${recursiveBinarySearch(a, Number(process.argv[2]), 0, a.length - 1)}\n
+// and took ${iterations.num} iterations to complete the search`);
+
+function solution(A) {
+  A.sort((a, b) => {
+    // return -n, 0, or n
+    // n meaning a > b; 0 meaning a = b; -n meaning a < b
+    return a - b;
+  });
+  const max = A[A.length - 1];
+
+  for (let i = 1; i < max; i++) {
+    if (binarySearch(A, i) === -1) {
+      return i;
+    }
+  }
+}
+
+console.log(`The smallest Positive Integer missing from the array is: ${solution(a)}\n
+this took ${iterations.num} iterations to complete the search`);
