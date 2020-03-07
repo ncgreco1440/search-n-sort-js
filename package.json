@@ -1,0 +1,24 @@
+{
+  "name": "search-n-sort-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:debug": "node --inspect --inspect-brk ./node_modules/jest/bin/jest.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ncgreco1440/search-n-sort-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ncgreco1440/search-n-sort-js/issues"
+  },
+  "homepage": "https://github.com/ncgreco1440/search-n-sort-js#readme",
+  "dependencies": {
+    "jest": "^25.1.0"
+  }
+}
